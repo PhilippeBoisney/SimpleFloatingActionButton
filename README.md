@@ -7,7 +7,7 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-Material design Circular Floating Button Menu (inspired by [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html)) for iOS written in Swift 2.0
+Material design Circular Floating Button Menu (inspired by [Google Material Design](https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button)) for iOS written in Swift 2.0
 
 Please feel free to make pull requests :)
 
