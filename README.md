@@ -11,7 +11,7 @@ Material design Circular Floating Button Menu (inspired by [Google Material Desi
 
 Please feel free to make pull requests :)
 
-![alt tag](https://raw.githubusercontent.com/Phil69/CircularFloatingButtonMenu-MaterialDesign-Swift/master/application.gif)
+![alt tag](https://raw.githubusercontent.com/Phil69/CircularFloatingButtonMenu-MaterialDesign/master/application.gif)
 
 ## Version
 1.0
