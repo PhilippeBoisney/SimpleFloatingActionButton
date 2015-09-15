@@ -54,52 +54,14 @@ class ViewController: UIViewController {
     @IBAction func pushOnPlusButton(sender: AnyObject) {
         if isPushed {
             whenIsPushed()
-            
         } else {
             whenIsUnPushed()
-            
         }
     }
+
     
-    // TODO: Finir ça !
-    func plusButtonRotation () {
-        let duration = 0.6
-        let delay = 0.0
-        let options = UIViewKeyframeAnimationOptions.CalculationModeLinear
-        let fullRotation = CGFloat(M_PI * 2)
-        
-        UIView.animateKeyframesWithDuration(duration, delay: delay, options: options, animations: {
-            // each keyframe needs to be added here
-            // within each keyframe the relativeStartTime and relativeDuration need to be values between 0.0 and 1.0
-            
-            UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 1/3, animations: {
-                // start at 0.00s (5s × 0)
-                // duration 1.67s (5s × 1/3)
-                // end at   1.67s (0.00s + 1.67s)
-                self.plusButton.transform = CGAffineTransformMakeRotation(1/3 * fullRotation)
-            })
-            UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 1/3, animations: {
-                self.plusButton.transform = CGAffineTransformMakeRotation(2/3 * fullRotation)
-            })
-            UIView.addKeyframeWithRelativeStartTime(2/3, relativeDuration: 1/3, animations: {
-                self.plusButton.transform = CGAffineTransformMakeRotation(3/3 * fullRotation)
-            })
-            
-            }, completion: {finished in
-                // any code entered here will be applied
-                // once the animation has completed
-                
-        })
-
-    }
-
-
-
-
-
     // MARK: - Action Methods
     func whenIsPushed() {
-        plusButtonRotation()
         self.plusButton.setTitle("+", forState: .Normal)
         scale = CGAffineTransformMakeScale(0, 0)
         translate = CGAffineTransformMakeTranslation(0.0, 0.0)
@@ -122,7 +84,7 @@ class ViewController: UIViewController {
     }
     
     func whenIsUnPushed(){
-        plusButtonRotation()
+        
         self.plusButton.setTitle("×", forState: .Normal)
         scale = CGAffineTransformMakeScale(1, 1)
         translate = CGAffineTransformMakeTranslation(0, 0)
