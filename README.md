@@ -11,7 +11,7 @@ Floating Action Button (inspired by [Google Material Design](https://www.google.
 
 Please feel free to make pull requests :)
 
-![alt tag](https://raw.githubusercontent.com/Phil69/Simple-Floating-Action-Button/master/application.gif)
+![alt tag](https://raw.githubusercontent.com/Phil69/Simple-Floating-Action-Button/master/demo.gif)
 
 ## INSTALLATION
 Simply add **SimpleFloatingActionButton.swift** file on your project.
