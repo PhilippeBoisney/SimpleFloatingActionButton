@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         //Add action event
         plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: .TouchUpInside)
         
+        plusButton.buttonBackgroundColor = UIColor.purpleColor()
         
         //Add to the view
         self.view.addSubview(plusButton)

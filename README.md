@@ -27,6 +27,11 @@ plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: 
 //Add to the view
 self.view.addSubview(plusButton)
 ```
+
+**Change background color of button**
+```swift
+plusButton.buttonBackgroundColor = UIColor.purpleColor()
+```
 ## Version
 1.1
 

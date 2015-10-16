@@ -40,7 +40,7 @@ class SimpleFloatingActionButton: UIButton {
     @IBInspectable var shadowRippleRadius: Float = 1
     @IBInspectable var shadowRippleEnable: Bool = true
     @IBInspectable var trackTouchLocation: Bool = false
-    @IBInspectable var fillColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
+    @IBInspectable var buttonBackgroundColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
     @IBInspectable var isAddButton: Bool = true
     
     let rippleView = UIView()
@@ -120,7 +120,7 @@ class SimpleFloatingActionButton: UIButton {
     override func drawRect(rect: CGRect) {
         
         let path = UIBezierPath(ovalInRect: rect)
-        fillColor.setFill()
+        buttonBackgroundColor.setFill()
         path.fill()
         
         //set up the width and height variables
