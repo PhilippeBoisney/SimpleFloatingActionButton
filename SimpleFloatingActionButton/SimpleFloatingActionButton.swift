@@ -1,6 +1,6 @@
 //
-//  CircularFloatingButton.swift
-//  CircularFloatingButtonMenu
+//  SimpleFloatingActionButton.swift
+//  SimpleFloatingActionButton
 //
 //  Created by Phil on 14/08/2015.
 //  Copyright © 2015 CookMinute. All rights reserved.
@@ -10,28 +10,27 @@ import UIKit
 import QuartzCore
 
 @IBDesignable
-class CircularFloatingButton: UIButton {
+class SimpleFloatingActionButton: UIButton {   
     
-    
-    @IBInspectable var ripplePercent: Float = 2.0 {
+    var ripplePercent: Float = 2.0 {
         didSet {
             setupRippleView()
         }
     }
     
-    @IBInspectable var rippleColor: UIColor = UIColor(white: 0.9, alpha: 1) {
+    var rippleColor: UIColor = UIColor(white: 0.9, alpha: 1) {
         didSet {
             rippleView.backgroundColor = rippleColor
         }
     }
     
-    @IBInspectable var rippleBackgroundColor: UIColor = UIColor(white: 0.95, alpha: 1) {
+    var rippleBackgroundColor: UIColor = UIColor(white: 0.95, alpha: 1) {
         didSet {
             rippleBackgroundView.backgroundColor = rippleBackgroundColor
         }
     }
     
-    @IBInspectable var buttonCornerRadius: Float = 0 {
+    var buttonCornerRadius: Float = 0 {
         didSet{
             layer.cornerRadius = CGFloat(buttonCornerRadius)
         }
@@ -41,6 +40,8 @@ class CircularFloatingButton: UIButton {
     @IBInspectable var shadowRippleRadius: Float = 1
     @IBInspectable var shadowRippleEnable: Bool = true
     @IBInspectable var trackTouchLocation: Bool = false
+    @IBInspectable var fillColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
+    @IBInspectable var isAddButton: Bool = true
     
     let rippleView = UIView()
     let rippleBackgroundView = UIView()
@@ -62,7 +63,7 @@ class CircularFloatingButton: UIButton {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         setup()
     }
     
@@ -71,18 +72,38 @@ class CircularFloatingButton: UIButton {
         setup()
     }
     
+    init () {
+        super.init(frame: CGRectZero)
+        setup()
+    }
     private func setup() {
+        setupView()
         setupRippleView()
-        
         rippleBackgroundView.backgroundColor = rippleBackgroundColor
         rippleBackgroundView.frame = bounds
         layer.addSublayer(rippleBackgroundView.layer)
+        
         
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         
         rippleBackgroundView.layer.addSublayer(rippleView.layer)
         rippleBackgroundView.alpha = 0
+    }
+    
+    private func setupView(){
+        
+        let dim = UIScreen.mainScreen().bounds.height / 8
+        let y = UIScreen.mainScreen().bounds.height * 0.8
+        let x = UIScreen.mainScreen().bounds.width * 0.73
+        
+        let newFrame: CGRect = CGRectMake(0, 0, dim, dim)
+        
+        self.frame = newFrame
+        self.frame = CGRectMake(x, y, self.frame.height, self.frame.height)
+        self.layer.cornerRadius = 0.5 * self.frame.height
+        
+        
     }
     
     private func setupRippleView() {
@@ -95,6 +116,56 @@ class CircularFloatingButton: UIButton {
         rippleView.frame = CGRectMake(x, y, size, size)
         rippleView.layer.cornerRadius = corner
     }
+    
+    override func drawRect(rect: CGRect) {
+        
+        let path = UIBezierPath(ovalInRect: rect)
+        fillColor.setFill()
+        path.fill()
+        
+        //set up the width and height variables
+        //for the horizontal stroke
+        let plusHeight: CGFloat = 3.0
+        let plusWidth: CGFloat = min(bounds.width, bounds.height) * 0.3
+        
+        //create the path
+        let plusPath = UIBezierPath()
+        
+        //set the path's line width to the height of the stroke
+        plusPath.lineWidth = plusHeight
+        
+        //move the initial point of the path
+        //to the start of the horizontal stroke
+        plusPath.moveToPoint(CGPoint(
+            x:bounds.width/2 - plusWidth/2 + 0.5,
+            y:bounds.height/2 + 0.5))
+        
+        //add a point to the path at the end of the stroke
+        plusPath.addLineToPoint(CGPoint(
+            x:bounds.width/2 + plusWidth/2 + 0.5,
+            y:bounds.height/2 + 0.5))
+        
+        //Vertical Line
+        if isAddButton {
+            //move to the start of the vertical stroke
+            plusPath.moveToPoint(CGPoint(
+                x:bounds.width/2 + 0.5,
+                y:bounds.height/2 - plusWidth/2 + 0.5))
+            
+            //add the end point to the vertical stroke
+            plusPath.addLineToPoint(CGPoint(
+                x:bounds.width/2 + 0.5,
+                y:bounds.height/2 + plusWidth/2 + 0.5))
+        }
+        
+        //set the stroke color
+        UIColor.whiteColor().setStroke()
+        
+        //draw the stroke
+        plusPath.stroke()
+        
+    }
+
     
     override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         if trackTouchLocation {
@@ -180,6 +251,8 @@ class CircularFloatingButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        setupView()
         
         let oldCenter = rippleView.center
         setupRippleView()

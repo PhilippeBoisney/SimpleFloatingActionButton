@@ -1,4 +1,4 @@
-# CircularFloatingButtonMenu (Material Design)
+# Floating Action Button (Material Design)
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
@@ -7,14 +7,28 @@
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 
-Material design Circular Floating Button Menu (inspired by [Google Material Design](https://www.google.com/design/spec/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button)) for iOS written in Swift 2.0
+Floating Action Button (inspired by [Google Material Design](https://www.google.com/design/spec/components/buttons-floating-action-button.html#)) for iOS written in Swift 2.0
 
 Please feel free to make pull requests :)
 
-![alt tag](https://raw.githubusercontent.com/Phil69/CircularFloatingButtonMenu-MaterialDesign/master/application.gif)
+![alt tag](https://raw.githubusercontent.com/Phil69/Simple-Floating-Action-Button/master/application.gif)
 
+## INSTALLATION
+Simply add **SimpleFloatingActionButton.swift** file on your project.
+
+## USAGE
+```swift
+//Simply, Call Button
+let plusButton: SimpleFloatingActionButton = SimpleFloatingActionButton()
+
+//Add action event
+plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: .TouchUpInside)
+
+//Add to the view
+self.view.addSubview(plusButton)
+```
 ## Version
-1.0
+1.1
 
 ## Requirements
 

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CB9BF43B535DDEA8BD31A50D3CB2E2566683339B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "264070D1395FABAE83C39D0ED4ACE645C68A05EB" : 0,
+    "CB9BF43B535DDEA8BD31A50D3CB2E2566683339B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "080ECEE5-E0A5-4DD0-80F2-E89835EACBC7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "264070D1395FABAE83C39D0ED4ACE645C68A05EB" : "Swift-Slide-Menu\/",
+    "CB9BF43B535DDEA8BD31A50D3CB2E2566683339B" : "CircularFloatingButtonMenu-MaterialDesign\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SimpleFloatingActionButton",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SimpleFloatingActionButton.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PhilippeBoisney\/Swift-Slide-Menu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "264070D1395FABAE83C39D0ED4ACE645C68A05EB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Phil69\/CircularFloatingButtonMenu-MaterialDesign.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CB9BF43B535DDEA8BD31A50D3CB2E2566683339B"
+    }
+  ]
+}

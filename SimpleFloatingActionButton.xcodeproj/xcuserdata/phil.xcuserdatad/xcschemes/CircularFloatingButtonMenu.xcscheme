@@ -15,38 +15,38 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A3B59C81B7E43D400FE53CF"
-               BuildableName = "CircularFloatingButtonMenu.app"
-               BlueprintName = "CircularFloatingButtonMenu"
-               ReferencedContainer = "container:CircularFloatingButtonMenu.xcodeproj">
+               BuildableName = "SimpleFloatingActionButton.app"
+               BlueprintName = "SimpleFloatingActionButton"
+               ReferencedContainer = "container:SimpleFloatingActionButton.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3B59C81B7E43D400FE53CF"
-            BuildableName = "CircularFloatingButtonMenu.app"
-            BlueprintName = "CircularFloatingButtonMenu"
-            ReferencedContainer = "container:CircularFloatingButtonMenu.xcodeproj">
+            BuildableName = "SimpleFloatingActionButton.app"
+            BlueprintName = "SimpleFloatingActionButton"
+            ReferencedContainer = "container:SimpleFloatingActionButton.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -56,28 +56,28 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3B59C81B7E43D400FE53CF"
-            BuildableName = "CircularFloatingButtonMenu.app"
-            BlueprintName = "CircularFloatingButtonMenu"
-            ReferencedContainer = "container:CircularFloatingButtonMenu.xcodeproj">
+            BuildableName = "SimpleFloatingActionButton.app"
+            BlueprintName = "SimpleFloatingActionButton"
+            ReferencedContainer = "container:SimpleFloatingActionButton.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4A3B59C81B7E43D400FE53CF"
-            BuildableName = "CircularFloatingButtonMenu.app"
-            BlueprintName = "CircularFloatingButtonMenu"
-            ReferencedContainer = "container:CircularFloatingButtonMenu.xcodeproj">
+            BuildableName = "SimpleFloatingActionButton.app"
+            BlueprintName = "SimpleFloatingActionButton"
+            ReferencedContainer = "container:SimpleFloatingActionButton.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		4A3B59CD1B7E43D400FE53CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B59CC1B7E43D400FE53CF /* AppDelegate.swift */; };
 		4A3B59CF1B7E43D400FE53CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B59CE1B7E43D400FE53CF /* ViewController.swift */; };
-		4A3B59D21B7E43D400FE53CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B59D01B7E43D400FE53CF /* Main.storyboard */; };
-		4A3B59E01B7E441800FE53CF /* CircularFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B59DF1B7E441800FE53CF /* CircularFloatingButton.swift */; };
+		4A3B59E01B7E441800FE53CF /* SimpleFloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B59DF1B7E441800FE53CF /* SimpleFloatingActionButton.swift */; };
 		4A4BB37A1B84C5FF00BBF8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4BB3791B84C5FF00BBF8A7 /* Assets.xcassets */; };
+		4A8C4FA01BD10AAC00434335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8C4F9E1BD10AAC00434335 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A3B59C91B7E43D400FE53CF /* CircularFloatingButtonMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircularFloatingButtonMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A3B59C91B7E43D400FE53CF /* SimpleFloatingActionButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFloatingActionButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3B59CC1B7E43D400FE53CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3B59CE1B7E43D400FE53CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4A3B59D11B7E43D400FE53CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A3B59D81B7E43D400FE53CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A3B59DF1B7E441800FE53CF /* CircularFloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularFloatingButton.swift; sourceTree = "<group>"; };
+		4A3B59DF1B7E441800FE53CF /* SimpleFloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFloatingActionButton.swift; sourceTree = "<group>"; };
 		4A4BB3791B84C5FF00BBF8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A8C4F9F1BD10AAC00434335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 		4A3B59C01B7E43D400FE53CF = {
 			isa = PBXGroup;
 			children = (
-				4A3B59CB1B7E43D400FE53CF /* CircularFloatingButtonMenu */,
+				4A3B59CB1B7E43D400FE53CF /* SimpleFloatingActionButton */,
 				4A3B59CA1B7E43D400FE53CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,38 +46,39 @@
 		4A3B59CA1B7E43D400FE53CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A3B59C91B7E43D400FE53CF /* CircularFloatingButtonMenu.app */,
+				4A3B59C91B7E43D400FE53CF /* SimpleFloatingActionButton.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4A3B59CB1B7E43D400FE53CF /* CircularFloatingButtonMenu */ = {
+		4A3B59CB1B7E43D400FE53CF /* SimpleFloatingActionButton */ = {
 			isa = PBXGroup;
 			children = (
 				4A3B59DE1B7E43F600FE53CF /* Classes */,
 				4A3B59CC1B7E43D400FE53CF /* AppDelegate.swift */,
+				4A8C4F9E1BD10AAC00434335 /* Main.storyboard */,
 				4A3B59CE1B7E43D400FE53CF /* ViewController.swift */,
-				4A3B59D01B7E43D400FE53CF /* Main.storyboard */,
 				4A3B59D81B7E43D400FE53CF /* Info.plist */,
 				4A4BB3791B84C5FF00BBF8A7 /* Assets.xcassets */,
 			);
-			path = CircularFloatingButtonMenu;
+			path = SimpleFloatingActionButton;
 			sourceTree = "<group>";
 		};
 		4A3B59DE1B7E43F600FE53CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4A3B59DF1B7E441800FE53CF /* CircularFloatingButton.swift */,
+				4A3B59DF1B7E441800FE53CF /* SimpleFloatingActionButton.swift */,
 			);
 			name = Classes;
+			path = ../SimpleFloatingActionButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A3B59C81B7E43D400FE53CF /* CircularFloatingButtonMenu */ = {
+		4A3B59C81B7E43D400FE53CF /* SimpleFloatingActionButton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A3B59DB1B7E43D400FE53CF /* Build configuration list for PBXNativeTarget "CircularFloatingButtonMenu" */;
+			buildConfigurationList = 4A3B59DB1B7E43D400FE53CF /* Build configuration list for PBXNativeTarget "SimpleFloatingActionButton" */;
 			buildPhases = (
 				4A3B59C51B7E43D400FE53CF /* Sources */,
 				4A3B59C61B7E43D400FE53CF /* Frameworks */,
@@ -87,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = CircularFloatingButtonMenu;
+			name = SimpleFloatingActionButton;
 			productName = CircularFloatingButtonMenu;
-			productReference = 4A3B59C91B7E43D400FE53CF /* CircularFloatingButtonMenu.app */;
+			productReference = 4A3B59C91B7E43D400FE53CF /* SimpleFloatingActionButton.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A3B59C41B7E43D400FE53CF /* Build configuration list for PBXProject "CircularFloatingButtonMenu" */;
+			buildConfigurationList = 4A3B59C41B7E43D400FE53CF /* Build configuration list for PBXProject "SimpleFloatingActionButton" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -119,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A3B59C81B7E43D400FE53CF /* CircularFloatingButtonMenu */,
+				4A3B59C81B7E43D400FE53CF /* SimpleFloatingActionButton */,
 			);
 		};
 /* End PBXProject section */
@@ -130,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4BB37A1B84C5FF00BBF8A7 /* Assets.xcassets in Resources */,
-				4A3B59D21B7E43D400FE53CF /* Main.storyboard in Resources */,
+				4A8C4FA01BD10AAC00434335 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,17 +144,17 @@
 			files = (
 				4A3B59CF1B7E43D400FE53CF /* ViewController.swift in Sources */,
 				4A3B59CD1B7E43D400FE53CF /* AppDelegate.swift in Sources */,
-				4A3B59E01B7E441800FE53CF /* CircularFloatingButton.swift in Sources */,
+				4A3B59E01B7E441800FE53CF /* SimpleFloatingActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4A3B59D01B7E43D400FE53CF /* Main.storyboard */ = {
+		4A8C4F9E1BD10AAC00434335 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4A3B59D11B7E43D400FE53CF /* Base */,
+				4A8C4F9F1BD10AAC00434335 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,11 +249,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CircularFloatingButtonMenu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SimpleFloatingActionButton/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookminute.CircularFloatingButtonMenu;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cookminute.SimpleFloatingActionButton;
+				PRODUCT_NAME = SimpleFloatingActionButton;
 			};
 			name = Debug;
 		};
@@ -260,18 +261,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CircularFloatingButtonMenu/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SimpleFloatingActionButton/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cookminute.CircularFloatingButtonMenu;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cookminute.SimpleFloatingActionButton;
+				PRODUCT_NAME = SimpleFloatingActionButton;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A3B59C41B7E43D400FE53CF /* Build configuration list for PBXProject "CircularFloatingButtonMenu" */ = {
+		4A3B59C41B7E43D400FE53CF /* Build configuration list for PBXProject "SimpleFloatingActionButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A3B59D91B7E43D400FE53CF /* Debug */,
@@ -280,7 +281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A3B59DB1B7E43D400FE53CF /* Build configuration list for PBXNativeTarget "CircularFloatingButtonMenu" */ = {
+		4A3B59DB1B7E43D400FE53CF /* Build configuration list for PBXNativeTarget "SimpleFloatingActionButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A3B59DC1B7E43D400FE53CF /* Debug */,
