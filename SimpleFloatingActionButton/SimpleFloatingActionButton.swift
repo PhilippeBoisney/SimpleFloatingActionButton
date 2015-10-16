@@ -125,7 +125,7 @@ class SimpleFloatingActionButton: UIButton {
         
         //set up the width and height variables
         //for the horizontal stroke
-        let plusHeight: CGFloat = 3.0
+        let plusHeight: CGFloat = 1.0
         let plusWidth: CGFloat = min(bounds.width, bounds.height) * 0.3
         
         //create the path
