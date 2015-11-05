@@ -13,19 +13,19 @@ import QuartzCore
 public class SimpleFloatingActionButton: UIButton {
     
     //PROPERTIES RIPPLE EFFECT - USAGE PROGRAMMATICALY
-    var ripplePercent: Float = 2.0 {
+    public var ripplePercent: Float = 2.0 {
         didSet {
             setupRippleView()
         }
     }
     
-    var rippleColor: UIColor = UIColor(white: 0.9, alpha: 1) {
+    public var rippleColor: UIColor = UIColor(white: 0.9, alpha: 1) {
         didSet {
             rippleView.backgroundColor = rippleColor
         }
     }
     
-    var rippleBackgroundColor: UIColor = UIColor(white: 0.95, alpha: 1) {
+    public var rippleBackgroundColor: UIColor = UIColor(white: 0.95, alpha: 1) {
         didSet {
             rippleBackgroundView.backgroundColor = rippleBackgroundColor
         }
@@ -45,11 +45,11 @@ public class SimpleFloatingActionButton: UIButton {
     }
     
     //PROPERTIES RIPPLE EFFECT - USAGE INTERFACE BUILDER
-    @IBInspectable var rippleOverBounds: Bool = false
-    @IBInspectable var shadowRippleRadius: Float = 1
-    @IBInspectable var shadowRippleEnable: Bool = true
-    @IBInspectable var trackTouchLocation: Bool = false
-    @IBInspectable var buttonBackgroundColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
+    @IBInspectable public var rippleOverBounds: Bool = false
+    @IBInspectable public var shadowRippleRadius: Float = 1
+    @IBInspectable public var shadowRippleEnable: Bool = true
+    @IBInspectable public var trackTouchLocation: Bool = false
+    @IBInspectable public var buttonBackgroundColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
     
     //FOR DESIGN
     private let rippleView = UIView()
@@ -60,7 +60,7 @@ public class SimpleFloatingActionButton: UIButton {
     private var tempShadowOpacity: Float = 0
     
     //MARK: INITIALISERS
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         setup()
     }
@@ -76,7 +76,7 @@ public class SimpleFloatingActionButton: UIButton {
     }
     
     //MARK: LIFE OF VIEW
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         setupViewFrame()
@@ -149,7 +149,7 @@ public class SimpleFloatingActionButton: UIButton {
     }
     
     //Draw the cross on button
-    override func drawRect(rect: CGRect) {
+    override public func drawRect(rect: CGRect) {
         
         let path = UIBezierPath(ovalInRect: rect)
         buttonBackgroundColor.setFill()
@@ -196,9 +196,9 @@ public class SimpleFloatingActionButton: UIButton {
         plusPath.stroke()
         
     }
-
+    
     //MARK: Handles Touch Tracking and Animations
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+    override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         
         if trackTouchLocation {
             rippleView.center = touch.locationInView(self)
@@ -237,12 +237,12 @@ public class SimpleFloatingActionButton: UIButton {
         return super.beginTrackingWithTouch(touch, withEvent: event)
     }
     
-    override func cancelTrackingWithEvent(event: UIEvent?) {
+    override public func cancelTrackingWithEvent(event: UIEvent?) {
         super.cancelTrackingWithEvent(event)
         animateToNormal()
     }
     
-    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
+    override public func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
         super.endTrackingWithTouch(touch, withEvent: event)
         animateToNormal()
     }
