@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 @IBDesignable
-class SimpleFloatingActionButton: UIButton {   
+public class SimpleFloatingActionButton: UIButton {
     
     //PROPERTIES RIPPLE EFFECT - USAGE PROGRAMMATICALY
     var ripplePercent: Float = 2.0 {
