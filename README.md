@@ -11,7 +11,7 @@ Floating Action Button (inspired by [Google Material Design](https://www.google.
 
 Please feel free to make pull requests :)
 
-![alt tag](https://raw.githubusercontent.com/Phil69/SimpleFloatingActionButton/master/demo.gif)
+![alt tag](https://github.com/PhilippeBoisney/SimpleFloatingActionButton/raw/master/demo.gif)
 
 ## INSTALLATION
 ####Manually
