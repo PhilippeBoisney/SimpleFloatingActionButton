@@ -21,10 +21,15 @@ class ViewController: UIViewController {
         //Add action event
         plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: .TouchUpInside)
         
-        plusButton.buttonBackgroundColor = UIColor.purpleColor()
+        //Change ripple effect design
+        plusButton.ripplePercent = 2 //Default is '2' and I don't recommand to change it (Simply because I love it like that)
+        plusButton.rippleBackgroundColor = UIColor.greenColor()
+        plusButton.rippleColor = UIColor.redColor()
         
         //Add to the view
         self.view.addSubview(plusButton)
+        
+        
         
         
     }

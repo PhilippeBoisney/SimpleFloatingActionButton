@@ -12,6 +12,7 @@ import QuartzCore
 @IBDesignable
 class SimpleFloatingActionButton: UIButton {   
     
+    //PROPERTIES RIPPLE EFFECT - USAGE PROGRAMMATICALY
     var ripplePercent: Float = 2.0 {
         didSet {
             setupRippleView()
@@ -30,25 +31,6 @@ class SimpleFloatingActionButton: UIButton {
         }
     }
     
-    var buttonCornerRadius: Float = 0 {
-        didSet{
-            layer.cornerRadius = CGFloat(buttonCornerRadius)
-        }
-    }
-    
-    @IBInspectable var rippleOverBounds: Bool = false
-    @IBInspectable var shadowRippleRadius: Float = 1
-    @IBInspectable var shadowRippleEnable: Bool = true
-    @IBInspectable var trackTouchLocation: Bool = false
-    @IBInspectable var buttonBackgroundColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
-    @IBInspectable var isAddButton: Bool = true
-    
-    let rippleView = UIView()
-    let rippleBackgroundView = UIView()
-    
-    private var tempShadowRadius: CGFloat = 0
-    private var tempShadowOpacity: Float = 0
-    
     private var rippleMask: CAShapeLayer? {
         get {
             if !rippleOverBounds {
@@ -62,6 +44,22 @@ class SimpleFloatingActionButton: UIButton {
         }
     }
     
+    //PROPERTIES RIPPLE EFFECT - USAGE INTERFACE BUILDER
+    @IBInspectable var rippleOverBounds: Bool = false
+    @IBInspectable var shadowRippleRadius: Float = 1
+    @IBInspectable var shadowRippleEnable: Bool = true
+    @IBInspectable var trackTouchLocation: Bool = false
+    @IBInspectable var buttonBackgroundColor: UIColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) //Red Color Material Design
+    
+    //FOR DESIGN
+    private let rippleView = UIView()
+    private let rippleBackgroundView = UIView()
+    
+    //FOR DATA
+    private var tempShadowRadius: CGFloat = 0
+    private var tempShadowOpacity: Float = 0
+    
+    //MARK: INITIALISERS
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         setup()
@@ -76,13 +74,32 @@ class SimpleFloatingActionButton: UIButton {
         super.init(frame: CGRectZero)
         setup()
     }
+    
+    //MARK: LIFE OF VIEW
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupViewFrame()
+        setupRippleView()
+        
+        let oldCenter = rippleView.center
+        
+        rippleView.center = oldCenter
+        
+        rippleBackgroundView.layer.frame = bounds
+        rippleBackgroundView.layer.mask = rippleMask
+        
+    }
+    
+    //MARK: SETUP SimpleFloatingButton
+    
+    //General setup of the view
     private func setup() {
-        setupView()
+        setupViewFrame()
         setupRippleView()
         rippleBackgroundView.backgroundColor = rippleBackgroundColor
         rippleBackgroundView.frame = bounds
         layer.addSublayer(rippleBackgroundView.layer)
-        
         
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
@@ -91,21 +108,35 @@ class SimpleFloatingActionButton: UIButton {
         rippleBackgroundView.alpha = 0
     }
     
-    private func setupView(){
+    //Setup the frame view
+    private func setupViewFrame(){
         
-        let dim = UIScreen.mainScreen().bounds.height / 8
-        let y = UIScreen.mainScreen().bounds.height * 0.8
-        let x = UIScreen.mainScreen().bounds.width * 0.73
+        var dim: CGFloat = 0.0
+        var y: CGFloat = 0.0
+        var x: CGFloat = 0.0
+        
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
+            print("landscape")
+            dim = UIScreen.mainScreen().bounds.height / 6
+            y = UIScreen.mainScreen().bounds.height - dim - 20
+            x = UIScreen.mainScreen().bounds.width - dim - 20
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+            print("Portrait")
+            dim = UIScreen.mainScreen().bounds.height / 8
+            y = UIScreen.mainScreen().bounds.height - dim - 20
+            x = UIScreen.mainScreen().bounds.width - dim - 20
+        }
         
         let newFrame: CGRect = CGRectMake(0, 0, dim, dim)
         
         self.frame = newFrame
         self.frame = CGRectMake(x, y, self.frame.height, self.frame.height)
         self.layer.cornerRadius = 0.5 * self.frame.height
-        
-        
     }
     
+    //Setup the ripple effect
     private func setupRippleView() {
         let size: CGFloat = CGRectGetWidth(bounds) * CGFloat(ripplePercent)
         let x: CGFloat = (CGRectGetWidth(bounds)/2) - (size/2)
@@ -117,6 +148,7 @@ class SimpleFloatingActionButton: UIButton {
         rippleView.layer.cornerRadius = corner
     }
     
+    //Draw the cross on button
     override func drawRect(rect: CGRect) {
         
         let path = UIBezierPath(ovalInRect: rect)
@@ -146,17 +178,16 @@ class SimpleFloatingActionButton: UIButton {
             y:bounds.height/2 + 0.5))
         
         //Vertical Line
-        if isAddButton {
-            //move to the start of the vertical stroke
-            plusPath.moveToPoint(CGPoint(
-                x:bounds.width/2 + 0.5,
-                y:bounds.height/2 - plusWidth/2 + 0.5))
-            
-            //add the end point to the vertical stroke
-            plusPath.addLineToPoint(CGPoint(
-                x:bounds.width/2 + 0.5,
-                y:bounds.height/2 + plusWidth/2 + 0.5))
-        }
+        //move to the start of the vertical stroke
+        plusPath.moveToPoint(CGPoint(
+            x:bounds.width/2 + 0.5,
+            y:bounds.height/2 - plusWidth/2 + 0.5))
+        
+        //add the end point to the vertical stroke
+        plusPath.addLineToPoint(CGPoint(
+            x:bounds.width/2 + 0.5,
+            y:bounds.height/2 + plusWidth/2 + 0.5))
+        
         
         //set the stroke color
         UIColor.whiteColor().setStroke()
@@ -166,8 +197,9 @@ class SimpleFloatingActionButton: UIButton {
         
     }
 
-    
+    //MARK: Handles Touch Tracking and Animations
     override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+        
         if trackTouchLocation {
             rippleView.center = touch.locationInView(self)
         }
@@ -247,20 +279,6 @@ class SimpleFloatingActionButton: UIButton {
                 
                 self.layer.addAnimation(groupAnim, forKey:"shadowBack")
             }, completion: nil)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupView()
-        
-        let oldCenter = rippleView.center
-        setupRippleView()
-        rippleView.center = oldCenter
-        
-        rippleBackgroundView.layer.frame = bounds
-        rippleBackgroundView.layer.mask = rippleMask
-        
     }
     
 }

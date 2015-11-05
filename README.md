@@ -28,12 +28,24 @@ plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: 
 self.view.addSubview(plusButton)
 ```
 
-**Change background color of button**
+**OPTIONS**
 ```swift
-plusButton.buttonBackgroundColor = UIColor.purpleColor()
+//Change background color of SimpleFloatingActionButton
+plusButton.buttonBackgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) // Default is red from Material Design color
+//Change ripple effect design
+plusButton.ripplePercent = 2 //Default is '2' and I don't recommend to change it (Simply because It's beautiful like that)
+plusButton.rippleBackgroundColor = UIColor.greenColor()
+plusButton.rippleColor = UIColor.redColor()
 ```
+
+## FEATURES
+
+- [x] Multi-Device Full Support
+- [x] Rotation Support
+- [x] Material Design Effect
+
 ## Version
-1.1
+1.3
 
 ## Requirements
 
@@ -45,4 +57,4 @@ Philippe BOISNEY (phil.boisney(@)gmail.com)
 
 ## Credit
 
-This library is based on Zoonooz (Amornchai Kanokpullwad) work (https://github.com/zoonooz/ZFRippleButton). Thanks a lot to him !
+Ripple effect is based on Zoonooz (Amornchai Kanokpullwad) work (https://github.com/zoonooz/ZFRippleButton). Thanks a lot to him !
