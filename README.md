@@ -28,7 +28,7 @@ plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: 
 self.view.addSubview(plusButton)
 ```
 
-**OPTIONS**
+## OPTIONS
 ```swift
 //Change background color of SimpleFloatingActionButton
 plusButton.buttonBackgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) // Default is red from Material Design color
