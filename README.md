@@ -1,4 +1,4 @@
-# Floating Action Button (Material Design)
+# Simple Floating Action Button (Material Design)
 
 [![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
 )](https://developer.apple.com/iphone/index.action)
@@ -11,11 +11,22 @@ Floating Action Button (inspired by [Google Material Design](https://www.google.
 
 Please feel free to make pull requests :)
 
-![alt tag](https://github.com/PhilippeBoisney/Simple-Floating-Action-Button/blob/master/demo.gif)
+![alt tag](https://raw.githubusercontent.com/Phil69/Simple-Floating-Action-Button/master/demo.gif)
 
 ## INSTALLATION
+####Manually
 Simply add **SimpleFloatingActionButton.swift** file on your project.
 
+####CocoaPods
+You can use [Cocoapods](http://cocoapods.org/) to install `Simple Floating Action Button`by adding it to your `Podfile`:
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+	pod 'SimpleFloatingActionButton', :git => 'https://github.com/PhilippeBoisney/SimpleFloatingActionButton.git'
+end
+```
 ## USAGE
 ```swift
 //Simply, Call Button
@@ -27,29 +38,12 @@ plusButton.addTarget(self, action: "touchUpInsidePlusButton", forControlEvents: 
 //Add to the view
 self.view.addSubview(plusButton)
 ```
-
-## OPTIONS
-```swift
-//Change background color of SimpleFloatingActionButton
-plusButton.buttonBackgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0) // Default is red from Material Design color
-//Change ripple effect design
-plusButton.ripplePercent = 2 //Default is '2' and I don't recommend to change it (Simply because It's beautiful like that)
-plusButton.rippleBackgroundColor = UIColor.greenColor()
-plusButton.rippleColor = UIColor.redColor()
-```
-
-## FEATURES
-
-- [x] Multi-Device Full Support
-- [x] Rotation Support
-- [x] Material Design Effect
-
 ## Version
-1.3
+1.1
 
 ## Requirements
 
-- iOS >= 8.0
+- iOS >= 7.0
 
 ## Author
 
@@ -57,4 +51,4 @@ Philippe BOISNEY (phil.boisney(@)gmail.com)
 
 ## Credit
 
-Ripple effect is based on Zoonooz (Amornchai Kanokpullwad) work (https://github.com/zoonooz/ZFRippleButton). Thanks a lot to him !
+This library is based on Zoonooz (Amornchai Kanokpullwad) work (https://github.com/zoonooz/ZFRippleButton). Thanks a lot to him !
