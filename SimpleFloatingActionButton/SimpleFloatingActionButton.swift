@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 @IBDesignable
-public class SimpleFloatingActionButton: UIButton {
+public class SimpleButton: UIButton {
     
     //PROPERTIES RIPPLE EFFECT - USAGE PROGRAMMATICALY
     public var ripplePercent: Float = 2.0 {
@@ -79,11 +79,9 @@ public class SimpleFloatingActionButton: UIButton {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        setupViewFrame()
         setupRippleView()
         
         let oldCenter = rippleView.center
-        
         rippleView.center = oldCenter
         
         rippleBackgroundView.layer.frame = bounds
@@ -111,23 +109,17 @@ public class SimpleFloatingActionButton: UIButton {
     //Setup the frame view
     private func setupViewFrame(){
         
-        var dim: CGFloat = 0.0
-        var y: CGFloat = 0.0
-        var x: CGFloat = 0.0
+        //Defaull Value
+        var dim: CGFloat = UIScreen.mainScreen().bounds.height / 8
+        var y: CGFloat = UIScreen.mainScreen().bounds.height - dim - 20
+        var x: CGFloat = UIScreen.mainScreen().bounds.width - dim - 20
         
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            print("landscape")
             dim = UIScreen.mainScreen().bounds.height / 6
             y = UIScreen.mainScreen().bounds.height - dim - 20
             x = UIScreen.mainScreen().bounds.width - dim - 20
         }
         
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
-            print("Portrait")
-            dim = UIScreen.mainScreen().bounds.height / 8
-            y = UIScreen.mainScreen().bounds.height - dim - 20
-            x = UIScreen.mainScreen().bounds.width - dim - 20
-        }
         
         let newFrame: CGRect = CGRectMake(0, 0, dim, dim)
         
