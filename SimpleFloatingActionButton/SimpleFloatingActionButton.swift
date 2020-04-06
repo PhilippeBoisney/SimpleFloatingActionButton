@@ -36,7 +36,7 @@ public class SimpleButton: UIButton {
             if !rippleOverBounds {
                 let maskLayer = CAShapeLayer()
                 maskLayer.path = UIBezierPath(roundedRect: bounds,
-                    cornerRadius: layer.cornerRadius).CGPath
+                cornerRadius: layer.cornerRadius).cgPath
                 return maskLayer
             } else {
                 return nil
@@ -71,7 +71,7 @@ public class SimpleButton: UIButton {
     }
     
     init () {
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect())
         setup()
     }
     
@@ -110,40 +110,40 @@ public class SimpleButton: UIButton {
     private func setupViewFrame(){
         
         //Defaull Value
-        var dim: CGFloat = UIScreen.mainScreen().bounds.height / 8
-        var y: CGFloat = UIScreen.mainScreen().bounds.height - dim - 20
-        var x: CGFloat = UIScreen.mainScreen().bounds.width - dim - 20
+        var dim: CGFloat = UIScreen.main.bounds.height / 8
+        var y: CGFloat = UIScreen.main.bounds.height - dim - 20
+        var x: CGFloat = UIScreen.main.bounds.width - dim - 20
         
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-            dim = UIScreen.mainScreen().bounds.height / 6
-            y = UIScreen.mainScreen().bounds.height - dim - 20
-            x = UIScreen.mainScreen().bounds.width - dim - 20
+        if(UIDevice.current.orientation.isLandscape) {
+            dim = UIScreen.main.bounds.height / 6
+            y = UIScreen.main.bounds.height - dim - 20
+            x = UIScreen.main.bounds.width - dim - 20
         }
         
         
-        let newFrame: CGRect = CGRectMake(0, 0, dim, dim)
+        let newFrame: CGRect = CGRect(x: 0, y: 0, width: dim, height: dim)
         
         self.frame = newFrame
-        self.frame = CGRectMake(x, y, self.frame.height, self.frame.height)
+        self.frame = CGRect(x: x, y: y, width: self.frame.height, height: self.frame.height)
         self.layer.cornerRadius = 0.5 * self.frame.height
     }
     
     //Setup the ripple effect
     private func setupRippleView() {
-        let size: CGFloat = CGRectGetWidth(bounds) * CGFloat(ripplePercent)
-        let x: CGFloat = (CGRectGetWidth(bounds)/2) - (size/2)
-        let y: CGFloat = (CGRectGetHeight(bounds)/2) - (size/2)
+        let size: CGFloat = bounds.width * CGFloat(ripplePercent)
+        let x: CGFloat = (bounds.width/2) - (size/2)
+        let y: CGFloat = (bounds.height/2) - (size/2)
         let corner: CGFloat = size/2
         
         rippleView.backgroundColor = rippleColor
-        rippleView.frame = CGRectMake(x, y, size, size)
+        rippleView.frame = CGRect(x: x, y: y, width: size, height: size)
         rippleView.layer.cornerRadius = corner
     }
     
     //Draw the cross on button
-    override public func drawRect(rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         
-        let path = UIBezierPath(ovalInRect: rect)
+        let path = UIBezierPath(ovalIn: rect)
         buttonBackgroundColor.setFill()
         path.fill()
         
@@ -160,29 +160,29 @@ public class SimpleButton: UIButton {
         
         //move the initial point of the path
         //to the start of the horizontal stroke
-        plusPath.moveToPoint(CGPoint(
+        plusPath.move(to: CGPoint(
             x:bounds.width/2 - plusWidth/2 + 0.5,
             y:bounds.height/2 + 0.5))
         
         //add a point to the path at the end of the stroke
-        plusPath.addLineToPoint(CGPoint(
+        plusPath.addLine(to: CGPoint(
             x:bounds.width/2 + plusWidth/2 + 0.5,
             y:bounds.height/2 + 0.5))
         
         //Vertical Line
         //move to the start of the vertical stroke
-        plusPath.moveToPoint(CGPoint(
+        plusPath.move(to: CGPoint(
             x:bounds.width/2 + 0.5,
             y:bounds.height/2 - plusWidth/2 + 0.5))
         
         //add the end point to the vertical stroke
-        plusPath.addLineToPoint(CGPoint(
+        plusPath.addLine(to: CGPoint(
             x:bounds.width/2 + 0.5,
             y:bounds.height/2 + plusWidth/2 + 0.5))
         
         
         //set the stroke color
-        UIColor.whiteColor().setStroke()
+        UIColor.white.setStroke()
         
         //draw the stroke
         plusPath.stroke()
@@ -190,23 +190,21 @@ public class SimpleButton: UIButton {
     }
     
     //MARK: Handles Touch Tracking and Animations
-    override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+    override public func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         if trackTouchLocation {
-            rippleView.center = touch.locationInView(self)
+            rippleView.center = touch.location(in: self)
         }
         
-        UIView.animateWithDuration(0.1,
+        UIView.animate(withDuration: 0.1,
             animations: {
                 self.rippleBackgroundView.alpha = 1
             }, completion: nil)
         
-        rippleView.transform = CGAffineTransformMakeScale(0.1, 0.1)
+        rippleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         
-        UIView.animateWithDuration(0.7, delay: 0, options: .CurveEaseOut,
-            animations: {
-                self.rippleView.transform = CGAffineTransformIdentity
-            }, completion: nil)
+        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {self.rippleView.transform = CGAffineTransform()}, completion: nil)
+        
         
         if shadowRippleEnable {
             tempShadowRadius = layer.shadowRadius
@@ -220,42 +218,42 @@ public class SimpleButton: UIButton {
             
             let groupAnim = CAAnimationGroup()
             groupAnim.duration = 0.7
-            groupAnim.fillMode = kCAFillModeForwards
-            groupAnim.removedOnCompletion = false
+            groupAnim.fillMode = CAMediaTimingFillMode.forwards
+            groupAnim.isRemovedOnCompletion = false
             groupAnim.animations = [shadowAnim, opacityAnim]
             
-            layer.addAnimation(groupAnim, forKey:"shadow")
+            layer.add(groupAnim, forKey:"shadow")
         }
-        return super.beginTrackingWithTouch(touch, withEvent: event)
+        return super.beginTracking(touch, with: event)
     }
     
-    override public func cancelTrackingWithEvent(event: UIEvent?) {
-        super.cancelTrackingWithEvent(event)
+    override public func cancelTracking(with event: UIEvent?) {
+        super.cancelTracking(with: event)
         animateToNormal()
     }
     
-    override public func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
-        super.endTrackingWithTouch(touch, withEvent: event)
+    override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+        super.endTracking(touch, with: event)
         animateToNormal()
     }
     
     private func animateToNormal(){
-        UIView.animateWithDuration(0.1,
+        UIView.animate(withDuration: 0.1,
             animations: {
                 self.rippleBackgroundView.alpha = 1
             },
             completion: {(success: Bool) -> () in
-                UIView.animateWithDuration(0.6 ,
+                UIView.animate(withDuration: 0.6 ,
                     animations: {
                         self.rippleBackgroundView.alpha = 0
                     }, completion: nil)
             }
         )
         
-        UIView.animateWithDuration(0.7, delay: 0,
-            options: .CurveEaseOut,
+        UIView.animate(withDuration: 0.7, delay: 0,
+            options: .curveEaseOut,
             animations: {
-                self.rippleView.transform = CGAffineTransformIdentity
+                self.rippleView.transform = CGAffineTransform()
                 
                 let shadowAnim = CABasicAnimation(keyPath:"shadowRadius")
                 shadowAnim.toValue = self.tempShadowRadius
@@ -265,11 +263,11 @@ public class SimpleButton: UIButton {
                 
                 let groupAnim = CAAnimationGroup()
                 groupAnim.duration = 0.7
-                groupAnim.fillMode = kCAFillModeForwards
-                groupAnim.removedOnCompletion = false
+                groupAnim.fillMode = CAMediaTimingFillMode.forwards
+                groupAnim.isRemovedOnCompletion = false
                 groupAnim.animations = [shadowAnim, opacityAnim]
                 
-                self.layer.addAnimation(groupAnim, forKey:"shadowBack")
+                self.layer.add(groupAnim, forKey:"shadowBack")
             }, completion: nil)
     }
     
